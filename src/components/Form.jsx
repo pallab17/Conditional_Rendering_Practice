@@ -1,12 +1,15 @@
 import React from "react";
 
-function Form() {
+function Form(prop) {
   return (
     <form className="form">
       <input type="text" placeholder="Username" />
       <input type="password" placeholder="Password" />
-      <input type="password" placeholder="Confirm Password" />
-      <button type="submit">Register</button>
+      {!prop.register && (
+        <input type="password" placeholder="Confirm Password" />
+      )}
+
+      <button type="submit">{prop.register ? "Login" : "Register"}</button>
     </form>
   );
 }
